@@ -4,7 +4,7 @@ import java.util.*;
 
 public class boj_1764 {
     public static void main(String[] args) {
-        //!!시간초과 뜸!!
+
         Scanner scanner = new Scanner(System.in);
         int listen = scanner.nextInt();
         int watch= scanner.nextInt();
@@ -17,9 +17,12 @@ public class boj_1764 {
         for (int i = 0; i < listen; i++) {
             listenArr.add(scanner.next());
         }
+
+        Set<String> names = new HashSet<>(listenArr);
+
         for (int i = 0; i < watch; i++) {
             String s = scanner.next();
-            if (listenArr.contains(s)) {
+            if (names.contains(s)) {
                 result.add(s);
             }
         }
