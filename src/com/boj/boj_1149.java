@@ -9,42 +9,19 @@ public class boj_1149 {
         int N = scanner.nextInt();
         int[][] rgb = new int[N][3];
 
-        for (int i = 0; i < N; i++){
-            for (int j = 0; j < 3; j++){
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < 3; j++) {
                 rgb[i][j] = scanner.nextInt();
             }
         }
 
-        int money = 0;
-        int first_min = rgb[0][0];
-        int first_index = 0;
-        for (int i = 1; i < 3; i++){
-            if (rgb[0][i] < first_min) {
-                first_min = rgb[0][i];
-                first_index = i;
-            }
-        }
-
-        money += first_min;
-
-        int index = first_index;
         for (int i = 1; i < N; i++){
-            int min = Integer.MAX_VALUE;
-            for (int j = 0; j < 3; j++){
-                if (j == index){
-                    continue;
-                }
-                else {
-                    if (min >= rgb[i][j]) {
-                        min = rgb[i][j];
-                        index = j;
-                    }
-                }
-            }
-            money += min;
+            rgb[i][0] += Math.min(rgb[i - 1][1], rgb[i - 1][2]);
+            rgb[i][1] += Math.min(rgb[i - 1][0], rgb[i - 1][2]);
+            rgb[i][2] += Math.min(rgb[i - 1][0], rgb[i - 1][1]);
         }
 
-        System.out.println(money);
+        System.out.println(Math.min(Math.min(rgb[N - 1][0], rgb[N - 1][1]), rgb[N - 1][2]));
 
     }
 }
