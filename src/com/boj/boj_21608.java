@@ -64,7 +64,7 @@ public class boj_21608 {
 
         for (int i = 0; i < N; i++){
             for (int j = 0; j < N; j++){
-                int emp = 4;
+                int emp = 4; //4방향이니 빈 자리가 4개가 최대이지만 끝부분에 위치한 자리는 4개보다 적을테니
                 if (i == 0 || i == N - 1)
                     emp--;
                 if (j == 0 || j == N - 1)
@@ -112,7 +112,7 @@ public class boj_21608 {
             }
         }
 
-        arr[choiceX][choiceY] = num;
+        arr[choiceX][choiceY] = num; //num = 학생 번호
         list.put(num, new Student(choiceX,choiceY, f));
 
         for(int i=0; i<4; i++) {
