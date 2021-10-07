@@ -30,14 +30,14 @@ public class boj_1182 {
     }
     public static void che(int depth, int sum) {
 
-        if (depth == N) {
-            if (sum == S) {
+        if (depth == N) { //마지막 숫자까지 확인했는지
+            if (sum == S) { //확인했을 때의 합이 S가 맞는지
                 answer++;
             }
             return;
         }
 
-        che(depth + 1, sum);
-        che(depth + 1, sum + arr[depth]);
+        che(depth + 1, sum); //매순간 수열의 해당 수를 더할지 말지 선택해야함 -> 선택하지 않은 경우
+        che(depth + 1, sum + arr[depth]); //수열의 해당 수를 선택한 경우
     }
 }
